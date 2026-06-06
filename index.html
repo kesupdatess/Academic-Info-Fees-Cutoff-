@@ -72,6 +72,11 @@ font-weight:600;
 .link{
 background:white;
 color:#2563eb;
+transition:0.2s;
+}
+
+.link:hover{
+transform:translateY(-2px);
 }
 
 .btn{
@@ -159,15 +164,24 @@ font-size:13px;
 <div class="card">
 <h2>📢 Important Notices</h2>
 
-<a class="link" href="https://kessc.edu.in/notices/" target="_blank">Degree College Notices</a>
-<a class="link" href="https://kesjrsanghvi.com/enotices/" target="_blank">Junior College Notices</a>
+<a class="link" href="https://kessc.edu.in/notices/" target="_blank">
+Degree College Notices
+</a>
+
+<a class="link" href="https://kesjrsanghvi.com/enotices/" target="_blank">
+Junior College Notices
+</a>
 </div>
 
 <!-- STUDENT CORNER -->
 <div class="card">
 <h2>🧑‍🎓 Student Corner</h2>
 
-<a class="action-btn meme" href="https://forms.gle/USmraK6T7EqH7UU9A" target="_blank">😂 Submit Meme</a>
+<a class="action-btn meme"
+href="https://forms.gle/USmraK6T7EqH7UU9A"
+target="_blank">
+😂 Submit Meme
+</a>
 
 <a class="action-btn doubt"
 href="mailto:kesupdatess@gmail.com?subject=Ask%20Doubt%20-%20KES%20Updates">
@@ -186,34 +200,64 @@ target="_blank">
 <div class="card">
 <h2>📚 Academic Info, Fees & Cutoff</h2>
 
-<a class="link" href="https://kesupdatess.github.io/Academic-Calendar-2026-27/" target="_blank">
+<a class="link"
+href="https://kesupdatess.github.io/Academic-Calendar-2026-27/"
+target="_blank">
 📅 Academic Calendar 2026-27
 </a>
 
-<a class="link" href="https://kesupdatess.github.io/DEGREE-COLLEGE-FEES/" target="_blank">
+<a class="link"
+href="https://kesupdatess.github.io/DEGREE-COLLEGE-FEES/"
+target="_blank">
 🎓 Degree College Fees
 </a>
 
-<a class="link" href="https://kesupdatess.github.io/JUNIOR-COLLEGE-FEES/" target="_blank">
+<a class="link"
+href="https://kesupdatess.github.io/JUNIOR-COLLEGE-FEES/"
+target="_blank">
 🏫 Junior College Fees
 </a>
 
-<a class="link" href="https://kesupdatess.github.io/JUNIORCOLLEGE-CUTOFF/" target="_blank">
+<a class="link"
+href="https://kesupdatess.github.io/JUNIORCOLLEGE-CUTOFF/"
+target="_blank">
 📊 Junior College Cutoff
 </a>
 
 </div>
 
-<!-- COLLAB -->
+<!-- PAST YEAR QUESTION PAPERS -->
+<div class="card">
+<h2>📄 Past Year Question Papers</h2>
+
+<a class="link"
+href="https://kessclibrary.wixsite.com/library/copy-of-question-papers"
+target="_blank">
+📝 Access Previous Year Question Papers
+</a>
+
+<p style="margin-top:12px;opacity:0.8;">
+Find semester-wise and subject-wise previous examination papers for exam preparation.
+</p>
+</div>
+
+<!-- COLLABORATION -->
 <div class="card">
 <h2>🤝 Collaboration</h2>
-<a class="link" href="mailto:kesupdatess@gmail.com">kesupdatess@gmail.com</a>
+
+<a class="link" href="mailto:kesupdatess@gmail.com">
+📧 kesupdatess@gmail.com
+</a>
+
 </div>
 
 <!-- ABOUT -->
 <div class="card">
 <h2>ℹ️ About</h2>
-<p>KES Updates is a student-run platform for notices and updates.</p>
+<p>
+KES Updates is a student-run platform dedicated to providing notices,
+academic resources, student support, and important updates for KES students.
+</p>
 </div>
 
 </div>
@@ -225,12 +269,12 @@ target="_blank">
 <script>
 function togglePanel(){
 let panel=document.getElementById("panel");
-panel.style.display =
+panel.style.display=
 panel.style.display==="flex" ? "none" : "flex";
 }
 
 function setTheme(mode){
-document.body.className =
+document.body.className=
 mode==="dark" ? "" : mode;
 localStorage.setItem("theme",mode);
 }
