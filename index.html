@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"><!DOCTYPE html>
-<html lang="en">
-<head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>KES Updates</title>
 
+<meta name="description" content="KES Updates - Student portal for notices, academic info, fees, cutoff, question papers, ERP and library services.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
@@ -31,24 +32,78 @@ transition:.3s;
 }
 
 body.light{background:#fff;color:#111827;}
+body.dark{background:#0f172a;color:white;}
 body.contrast{background:#000;color:#ffff00;font-weight:600;}
 
-/* HAMBURGER */
-.hamburger{
-position:fixed;
-top:15px;
-left:15px;
-font-size:30px;
-cursor:pointer;
-z-index:1001;
-background:rgba(255,255,255,.15);
-padding:8px 14px;
+header{
+text-align:center;
+padding:70px 20px 30px;
+}
+
+.logo{font-size:55px;}
+
+h1{font-size:2.2rem;margin-top:10px;}
+
+header p{opacity:.85;margin-top:5px;}
+
+.btn{
+display:block;
+max-width:260px;
+margin:20px auto 0;
+padding:12px;
+text-align:center;
+text-decoration:none;
 border-radius:12px;
-backdrop-filter:blur(10px);
+font-weight:600;
+color:white;
+background:linear-gradient(135deg,#2563eb,#3b82f6);
+}
+
+.container{
+max-width:1000px;
+margin:auto;
+padding:20px;
+}
+
+.card{
+background:rgba(255,255,255,.08);
+border:1px solid rgba(255,255,255,.15);
+backdrop-filter:blur(15px);
+padding:20px;
+border-radius:18px;
+margin-bottom:20px;
+}
+
+.card h2{
+margin-bottom:12px;
+}
+
+.link{
+display:block;
+padding:12px;
+margin-top:10px;
+border-radius:10px;
+background:white;
+color:#2563eb;
+font-weight:600;
+text-decoration:none;
+text-align:center;
+}
+
+.link:hover{
+transform:translateY(-2px);
+}
+
+input{
+width:100%;
+padding:14px;
+border:none;
+border-radius:14px;
+font-size:16px;
 }
 
 /* SIDEBAR */
-.sidebar{
+nav{
 position:fixed;
 top:0;
 left:-280px;
@@ -64,22 +119,14 @@ z-index:1002;
 overflow-y:auto;
 }
 
-.sidebar.active{left:0;}
+nav.active{left:0;}
 
-.sidebar a{
+nav a{
 color:white;
 text-decoration:none;
 padding:12px;
 border-radius:10px;
 background:rgba(255,255,255,.08);
-}
-
-.sidebar button{
-padding:12px;
-border:none;
-border-radius:10px;
-cursor:pointer;
-font-weight:600;
 }
 
 /* OVERLAY */
@@ -88,100 +135,31 @@ position:fixed;
 inset:0;
 background:rgba(0,0,0,.5);
 display:none;
-z-index:1000;
 }
 
 #overlay.active{display:block;}
 
-/* HEADER */
-header{
-text-align:center;
-padding:70px 20px 30px;
-}
-
-.logo{font-size:55px;}
-header h1{font-size:2.2rem;margin-top:10px;}
-header p{opacity:.85;margin-top:5px;}
-
-/* SEARCH */
-.search-container{
-max-width:1000px;
-margin:auto;
-padding:0 20px 20px;
-}
-
-.search-container input{
-width:100%;
-padding:14px 18px;
-border:none;
-border-radius:14px;
-font-size:16px;
-outline:none;
-box-shadow:0 4px 15px rgba(0,0,0,.15);
-}
-
-/* BUTTON */
-.btn{
-display:block;
-max-width:260px;
-margin:20px auto 0;
-padding:12px;
-text-align:center;
-text-decoration:none;
+.hamburger{
+position:fixed;
+top:15px;
+left:15px;
+font-size:30px;
+cursor:pointer;
+z-index:1003;
+background:rgba(255,255,255,.15);
+padding:8px 14px;
 border-radius:12px;
-font-weight:600;
-color:white;
-background:linear-gradient(135deg,#2563eb,#3b82f6);
 }
-
-/* CARD */
-.container{
-max-width:1000px;
-margin:auto;
-padding:20px;
-}
-
-.card{
-background:rgba(255,255,255,.08);
-border:1px solid rgba(255,255,255,.15);
-backdrop-filter:blur(15px);
-padding:20px;
-border-radius:18px;
-margin-bottom:18px;
-}
-
-.link{
-display:block;
-padding:12px;
-margin-top:10px;
-border-radius:10px;
-background:white;
-color:#2563eb;
-font-weight:600;
-text-decoration:none;
-text-align:center;
-}
-
-.action-btn{
-display:block;
-padding:12px;
-margin-top:10px;
-border-radius:10px;
-text-decoration:none;
-text-align:center;
-font-weight:600;
-color:white;
-}
-
-.meme{background:#7c3aed;}
-.doubt{background:#22c55e;}
-.report{background:#ef4444;}
 
 footer{
 text-align:center;
 padding:25px;
 font-size:13px;
 opacity:.7;
+}
+
+@media(max-width:480px){
+.card{padding:15px;}
 }
 </style>
 </head>
@@ -191,16 +169,15 @@ opacity:.7;
 <div class="hamburger" onclick="toggleMenu()">☰</div>
 <div id="overlay" onclick="toggleMenu()"></div>
 
-<!-- SIDEBAR -->
-<nav class="sidebar" id="sidebar">
+<nav id="sidebar">
 
-<a href="#notices" onclick="toggleMenu()">📢 Notices</a>
-<a href="#student" onclick="toggleMenu()">🧑‍🎓 Student Corner</a>
-<a href="#academic" onclick="toggleMenu()">📚 Academic Info</a>
-<a href="#papers" onclick="toggleMenu()">📄 Question Papers</a>
-<a href="#collab" onclick="toggleMenu()">🤝 Collaboration</a>
-<a href="#services" onclick="toggleMenu()">💳 ERP Portal</a>
-<a href="#library" onclick="toggleMenu()">📚 Library</a>
+<a href="#notices">📢 Notices</a>
+<a href="#student">🧑‍🎓 Student Corner</a>
+<a href="#academic">📚 Academic Info</a>
+<a href="#papers">📄 Question Papers</a>
+<a href="#erp">💳 ERP Portal</a>
+<a href="#library">📚 Library</a>
+<a href="#collab">🤝 Collaboration</a>
 
 <hr>
 
@@ -215,49 +192,63 @@ opacity:.7;
 <h1>KES Updates</h1>
 <p>Notices • Student Support • Academic Resources</p>
 
-<a class="btn" href="https://instagram.com/kes_updatess" target="_blank">
-📸 Follow Instagram
-</a>
+<a class="btn" href="https://instagram.com/kes_updatess" target="_blank">📸 Follow Instagram</a>
 </header>
-
-<div class="search-container">
-<input type="text" id="searchInput" placeholder="Search..." onkeyup="searchContent()">
-</div>
 
 <div class="container">
 
+<input type="text" id="searchInput" placeholder="Search notices, fees, cutoff..." onkeyup="searchContent()">
+
 <!-- NOTICES -->
 <div class="card searchable" id="notices">
-<h2>📢 Notices</h2>
-<a class="link" href="https://kessc.edu.in/notices/" target="_blank">Degree Notices</a>
-<a class="link" href="https://kesjrsanghvi.com/enotices/" target="_blank">Junior Notices</a>
+<h2>📢 Important Notices</h2>
+<a class="link" href="https://kessc.edu.in/notices/" target="_blank">Degree College Notices</a>
+<a class="link" href="https://kesjrsanghvi.com/enotices/" target="_blank">Junior College Notices</a>
 </div>
 
 <!-- STUDENT -->
 <div class="card searchable" id="student">
 <h2>🧑‍🎓 Student Corner</h2>
 
-<a class="action-btn meme" href="https://forms.gle/USmraK6T7EqH7UU9A" target="_blank">
-😂 Submit Meme
+<a class="link" href="https://forms.gle/USmraK6T7EqH7UU9A" target="_blank">😂 Submit Meme</a>
+
+<a class="link" href="mailto:kesupdatess@gmail.com">
+❓ Ask Doubt / Support
 </a>
 
-<a class="action-btn doubt" href="mailto:kesupdatess@gmail.com">
-❓ Ask Doubt
-</a>
-
-<a class="action-btn report" href="https://docs.google.com/forms/d/e/1FAIpQLSdpkELaLHjghZzWYR6EPYotuRvRDa3yQq3r5y2EHkRqrQOG8g/viewform">
+<a class="link" href="https://docs.google.com/forms/d/e/1FAIpQLSdpkELaLHjghZzWYR6EPYotuRvRDa3yQq3r5y2EHkRqrQOG8g/viewform" target="_blank">
 🚨 Report Problem
 </a>
+
+<p style="margin-top:10px;opacity:0.8;">
+Use this section for student submissions, doubts, memes and reporting issues.
+</p>
+
 </div>
 
 <!-- ACADEMIC -->
 <div class="card searchable" id="academic">
 <h2>📚 Academic Info</h2>
 
-<a class="link" href="https://drive.google.com/file/d/1F9UqN7SbvUJEaWOy7jtvoiu1dNkEpqVX/view" target="_blank">📅 Academic Calendar</a>
-<a class="link" href="https://drive.google.com/file/d/1vYEIClJD7QRGKD0ANY-XlPPUl-h9RN-f/view" target="_blank">🏫 Junior College Fees</a>
-<a class="link" href="https://drive.google.com/file/d/1VZeVNJ06mvhjIu6u6YeIpQzjxx2GiduN/view" target="_blank">🎓 Degree College Fees</a>
-<a class="link" href="https://drive.google.com/file/d/1QCLLe0cetbMmHujWD_AL95FE70TCJrF5/view" target="_blank">📊 Cutoff</a>
+<a class="link" href="https://drive.google.com/file/d/1F9UqN7SbvUJEaWOy7jtvoiu1dNkEpqVX/view" target="_blank">
+📅 Academic Calendar 2026-27
+</a>
+
+<a class="link" href="https://drive.google.com/file/d/1vYEIClJD7QRGKD0ANY-XlPPUl-h9RN-f/view" target="_blank">
+🏫 Junior College Fees Details
+</a>
+
+<a class="link" href="https://drive.google.com/file/d/1VZeVNJ06mvhjIu6u6YeIpQzjxx2GiduN/view" target="_blank">
+🎓 Degree College Fees Structure
+</a>
+
+<a class="link" href="https://drive.google.com/file/d/1QCLLe0cetbMmHujWD_AL95FE70TCJrF5/view" target="_blank">
+📊 Junior College Cutoff List
+</a>
+
+<p style="margin-top:10px;opacity:0.8;">
+All academic documents including fees, cutoff and calendar updates are available here.
+</p>
 
 </div>
 
@@ -266,21 +257,27 @@ opacity:.7;
 <h2>📄 Question Papers</h2>
 
 <a class="link" href="https://kessclibrary.wixsite.com/library/copy-of-question-papers" target="_blank">
-📝 Previous Year Papers
+📝 Previous Year Question Papers
 </a>
+
+<p style="margin-top:10px;opacity:0.8;">
+Semester-wise question papers for exam preparation and revision.
+</p>
+
 </div>
 
 <!-- ERP -->
-<div class="card searchable" id="services">
+<div class="card searchable" id="erp">
 <h2>💳 ERP Portal</h2>
 
 <a class="link" href="https://cimsstudentnewui.mastersofterp.in/" target="_blank">
 💰 Pay Fees & Download Receipt
 </a>
 
-<p style="opacity:0.85;margin-top:8px;">
-Official ERP system used for fees, results, receipts, and credit courses.
+<p style="margin-top:10px;opacity:0.8;">
+Official ERP system used for fee payment, result checking, credit course registration and receipt downloads.
 </p>
+
 </div>
 
 <!-- LIBRARY -->
@@ -288,27 +285,21 @@ Official ERP system used for fees, results, receipts, and credit courses.
 <h2>📚 Library</h2>
 
 <a class="link" href="https://kessclibrary.ourlib.in/" target="_blank">
-📚 KES Library Website
+📖 Online Library Catalogue
 </a>
 
-<p style="opacity:0.85;margin-top:8px;">
-Online library catalogue for books and study resources.
+<p style="margin-top:10px;opacity:0.8;">
+KES Shroff College Library system for books, catalogue search and academic resources.
 </p>
+
 </div>
 
-<!-- COLLAB -->
+<!-- CONTACT -->
 <div class="card searchable" id="collab">
 <h2>🤝 Collaboration</h2>
 
 <a class="link" href="mailto:kesupdatess@gmail.com">📧 Contact Email</a>
-</div>
 
-<!-- ABOUT -->
-<div class="card searchable">
-<h2>ℹ️ About</h2>
-<p>
-KES Updates is an independent student-run platform providing notices, academic resources, fees, cutoff updates, question papers, and student support.
-</p>
 </div>
 
 </div>
@@ -319,13 +310,19 @@ KES Updates is an independent student-run platform providing notices, academic r
 
 <script>
 
+const sidebar=document.getElementById("sidebar");
+const overlay=document.getElementById("overlay");
+
 function toggleMenu(){
-document.getElementById("sidebar").classList.toggle("active");
-document.getElementById("overlay").classList.toggle("active");
+sidebar.classList.toggle("active");
+overlay.classList.toggle("active");
+document.body.style.overflow =
+document.body.style.overflow==="hidden"?"":"hidden";
 }
 
 function setTheme(mode){
-document.body.className = mode === "dark" ? "" : mode;
+document.body.classList.remove("light","dark","contrast");
+document.body.classList.add(mode);
 localStorage.setItem("theme",mode);
 }
 
@@ -340,372 +337,6 @@ card.style.display=card.innerText.toLowerCase().includes(input)?"block":"none";
 
 window.onload=()=>{
 let saved=localStorage.getItem("theme");
-if(saved) setTheme(saved);
-};
-
-</script>
-
-</body>
-</html>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>KES Updates</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-<style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
-scroll-behavior:smooth;
-}
-
-body{
-background:
-radial-gradient(circle at top,#2563eb,transparent 40%),
-radial-gradient(circle at bottom,#7c3aed,transparent 40%),
-#0f172a;
-color:white;
-min-height:100vh;
-transition:.3s;
-}
-
-body.light{
-background:#ffffff;
-color:#111827;
-}
-
-body.contrast{
-background:#000;
-color:#ffff00;
-font-weight:600;
-}
-
-/* HAMBURGER */
-.hamburger{
-position:fixed;
-top:15px;
-left:15px;
-font-size:30px;
-cursor:pointer;
-z-index:1001;
-background:rgba(255,255,255,.15);
-padding:8px 14px;
-border-radius:12px;
-backdrop-filter:blur(10px);
-}
-
-/* SIDEBAR */
-.sidebar{
-position:fixed;
-top:0;
-left:-280px;
-width:260px;
-height:100%;
-background:#111827;
-padding:20px;
-display:flex;
-flex-direction:column;
-gap:12px;
-transition:.3s;
-z-index:1002;
-overflow-y:auto;
-}
-
-.sidebar.active{ left:0; }
-
-.sidebar a{
-color:white;
-text-decoration:none;
-padding:12px;
-border-radius:10px;
-background:rgba(255,255,255,.08);
-}
-
-.sidebar button{
-padding:12px;
-border:none;
-border-radius:10px;
-cursor:pointer;
-font-weight:600;
-}
-
-.close-btn{
-align-self:flex-end;
-font-size:24px;
-cursor:pointer;
-}
-
-/* OVERLAY */
-#overlay{
-position:fixed;
-inset:0;
-background:rgba(0,0,0,.5);
-display:none;
-z-index:1000;
-}
-
-#overlay.active{ display:block; }
-
-/* HEADER */
-header{
-text-align:center;
-padding:70px 20px 30px;
-}
-
-.logo{ font-size:55px; }
-
-header h1{
-font-size:2.2rem;
-margin-top:10px;
-}
-
-header p{
-opacity:.85;
-margin-top:5px;
-}
-
-/* SEARCH */
-.search-container{
-max-width:1000px;
-margin:auto;
-padding:0 20px 20px;
-}
-
-.search-container input{
-width:100%;
-padding:14px 18px;
-border:none;
-border-radius:14px;
-font-size:16px;
-outline:none;
-box-shadow:0 4px 15px rgba(0,0,0,.15);
-}
-
-/* BUTTONS */
-.btn{
-display:block;
-max-width:260px;
-margin:20px auto 0;
-padding:12px;
-text-align:center;
-text-decoration:none;
-border-radius:12px;
-font-weight:600;
-color:white;
-background:linear-gradient(135deg,#2563eb,#3b82f6);
-}
-
-.container{
-max-width:1000px;
-margin:auto;
-padding:20px;
-}
-
-.card{
-background:rgba(255,255,255,.08);
-border:1px solid rgba(255,255,255,.15);
-backdrop-filter:blur(15px);
-padding:20px;
-border-radius:18px;
-margin-bottom:18px;
-}
-
-.card h2{ margin-bottom:15px; }
-
-.link{
-display:block;
-padding:12px;
-margin-top:10px;
-border-radius:10px;
-background:white;
-color:#2563eb;
-font-weight:600;
-text-decoration:none;
-text-align:center;
-transition:.2s;
-}
-
-.link:hover{ transform:translateY(-2px); }
-
-.action-btn{
-display:block;
-padding:12px;
-margin-top:10px;
-border-radius:10px;
-text-decoration:none;
-text-align:center;
-font-weight:600;
-color:white;
-}
-
-.meme{background:#7c3aed;}
-.doubt{background:#22c55e;}
-.report{background:#ef4444;}
-
-/* FOOTER */
-footer{
-text-align:center;
-padding:25px;
-font-size:13px;
-opacity:.7;
-}
-</style>
-</head>
-
-<body>
-
-<div class="hamburger" onclick="toggleMenu()">☰</div>
-<div id="overlay" onclick="toggleMenu()"></div>
-
-<nav class="sidebar" id="sidebar">
-<div class="close-btn" onclick="toggleMenu()">✕</div>
-
-<a href="#notices" onclick="toggleMenu()">📢 Notices</a>
-<a href="#student" onclick="toggleMenu()">🧑‍🎓 Student Corner</a>
-<a href="#academic" onclick="toggleMenu()">📚 Academic Info</a>
-<a href="#papers" onclick="toggleMenu()">📄 Question Papers</a>
-<a href="#collab" onclick="toggleMenu()">🤝 Collaboration</a>
-<a href="https://instagram.com/kes_updatess" target="_blank">📸 Instagram</a>
-
-<hr>
-
-<button onclick="setTheme('light')">☀️ Light Mode</button>
-<button onclick="setTheme('dark')">🌙 Dark Mode</button>
-<button onclick="setTheme('contrast')">⚡ High Contrast</button>
-
-</nav>
-
-<header>
-<div class="logo">🎓</div>
-<h1>KES Updates</h1>
-<p>Notices • Student Support • Academic Resources</p>
-
-<a class="btn" href="https://instagram.com/kes_updatess" target="_blank">
-📸 Follow Instagram
-</a>
-</header>
-
-<div class="search-container">
-<input type="text" id="searchInput"
-placeholder="🔍 Search notices, fees, cutoff, papers..."
-onkeyup="searchContent()">
-</div>
-
-<div class="container">
-
-<!-- NOTICES -->
-<div class="card searchable" id="notices">
-<h2>📢 Important Notices</h2>
-
-<a class="link" href="https://kessc.edu.in/notices/" target="_blank">
-Degree College Notices
-</a>
-
-<a class="link" href="https://kesjrsanghvi.com/enotices/" target="_blank">
-Junior College Notices
-</a>
-</div>
-
-<!-- STUDENT -->
-<div class="card searchable" id="student">
-<h2>🧑‍🎓 Student Corner</h2>
-
-<a class="action-btn meme" href="https://forms.gle/USmraK6T7EqH7UU9A" target="_blank">
-😂 Submit Meme
-</a>
-
-<a class="action-btn doubt" href="mailto:kesupdatess@gmail.com">
-❓ Ask Doubt
-</a>
-
-<a class="action-btn report" href="https://docs.google.com/forms/d/e/1FAIpQLSdpkELaLHjghZzWYR6EPYotuRvRDa3yQq3r5y2EHkRqrQOG8g/viewform">
-🚨 Report Problem
-</a>
-</div>
-
-<!-- ACADEMIC (CORRECT FIXED) -->
-<div class="card searchable" id="academic">
-<h2>📚 Academic Info, Fees & Cutoff</h2>
-
-<a class="link" href="https://drive.google.com/file/d/1F9UqN7SbvUJEaWOy7jtvoiu1dNkEpqVX/view" target="_blank">
-📅 Academic Calendar 2026-27
-</a>
-
-<a class="link" href="https://drive.google.com/file/d/1vYEIClJD7QRGKD0ANY-XlPPUl-h9RN-f/view" target="_blank">
-🏫 Junior College Fees
-</a>
-
-<a class="link" href="https://drive.google.com/file/d/1VZeVNJ06mvhjIu6u6YeIpQzjxx2GiduN/view" target="_blank">
-🎓 Degree College Fees
-</a>
-
-<a class="link" href="https://drive.google.com/file/d/1QCLLe0cetbMmHujWD_AL95FE70TCJrF5/view" target="_blank">
-📊 Junior College Cutoff
-</a>
-
-</div>
-
-<!-- PAPERS -->
-<div class="card searchable" id="papers">
-<h2>📄 Past Year Question Papers</h2>
-
-<a class="link" href="https://kessclibrary.wixsite.com/library/copy-of-question-papers" target="_blank">
-📝 Access Previous Year Question Papers
-</a>
-</div>
-
-<!-- COLLAB -->
-<div class="card searchable" id="collab">
-<h2>🤝 Collaboration</h2>
-
-<a class="link" href="mailto:kesupdatess@gmail.com">
-📧 kesupdatess@gmail.com
-</a>
-</div>
-
-<!-- ABOUT -->
-<div class="card searchable">
-<h2>ℹ️ About</h2>
-<p>
-KES Updates is a student-run platform providing notices,
-academic resources, fee information, cutoff updates,
-question papers, and student support services.
-</p>
-</div>
-
-</div>
-
-<footer>
-© 2026 KES Updates
-</footer>
-
-<script>
-
-function toggleMenu(){
-document.getElementById("sidebar").classList.toggle("active");
-document.getElementById("overlay").classList.toggle("active");
-}
-
-function setTheme(mode){
-document.body.className = mode === "dark" ? "" : mode;
-localStorage.setItem("theme",mode);
-}
-
-function searchContent(){
-let input = document.getElementById("searchInput").value.toLowerCase();
-let cards = document.querySelectorAll(".searchable");
-
-cards.forEach(card=>{
-let text = card.innerText.toLowerCase();
-card.style.display = text.includes(input) ? "block" : "none";
-});
-}
-
-window.onload = ()=>{
-let saved = localStorage.getItem("theme");
 if(saved) setTheme(saved);
 };
 
