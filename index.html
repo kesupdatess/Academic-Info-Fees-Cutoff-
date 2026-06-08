@@ -39,7 +39,6 @@ font-weight:600;
 }
 
 /* HAMBURGER */
-
 .hamburger{
 position:fixed;
 top:15px;
@@ -54,7 +53,6 @@ backdrop-filter:blur(10px);
 }
 
 /* SIDEBAR */
-
 .sidebar{
 position:fixed;
 top:0;
@@ -71,9 +69,7 @@ z-index:1002;
 overflow-y:auto;
 }
 
-.sidebar.active{
-left:0;
-}
+.sidebar.active{ left:0; }
 
 .sidebar a{
 color:white;
@@ -98,7 +94,6 @@ cursor:pointer;
 }
 
 /* OVERLAY */
-
 #overlay{
 position:fixed;
 inset:0;
@@ -107,20 +102,15 @@ display:none;
 z-index:1000;
 }
 
-#overlay.active{
-display:block;
-}
+#overlay.active{ display:block; }
 
 /* HEADER */
-
 header{
 text-align:center;
 padding:70px 20px 30px;
 }
 
-.logo{
-font-size:55px;
-}
+.logo{ font-size:55px; }
 
 header h1{
 font-size:2.2rem;
@@ -133,7 +123,6 @@ margin-top:5px;
 }
 
 /* SEARCH */
-
 .search-container{
 max-width:1000px;
 margin:auto;
@@ -151,7 +140,6 @@ box-shadow:0 4px 15px rgba(0,0,0,.15);
 }
 
 /* BUTTONS */
-
 .btn{
 display:block;
 max-width:260px;
@@ -180,9 +168,7 @@ border-radius:18px;
 margin-bottom:18px;
 }
 
-.card h2{
-margin-bottom:15px;
-}
+.card h2{ margin-bottom:15px; }
 
 .link{
 display:block;
@@ -197,9 +183,7 @@ text-align:center;
 transition:.2s;
 }
 
-.link:hover{
-transform:translateY(-2px);
-}
+.link:hover{ transform:translateY(-2px); }
 
 .action-btn{
 display:block;
@@ -212,20 +196,11 @@ font-weight:600;
 color:white;
 }
 
-.meme{
-background:#7c3aed;
-}
-
-.doubt{
-background:#22c55e;
-}
-
-.report{
-background:#ef4444;
-}
+.meme{background:#7c3aed;}
+.doubt{background:#22c55e;}
+.report{background:#ef4444;}
 
 /* FOOTER */
-
 footer{
 text-align:center;
 padding:25px;
@@ -234,17 +209,13 @@ opacity:.7;
 }
 </style>
 </head>
+
 <body>
 
-<!-- HAMBURGER -->
 <div class="hamburger" onclick="toggleMenu()">☰</div>
-
-<!-- OVERLAY -->
 <div id="overlay" onclick="toggleMenu()"></div>
 
-<!-- SIDEBAR -->
 <nav class="sidebar" id="sidebar">
-
 <div class="close-btn" onclick="toggleMenu()">✕</div>
 
 <a href="#notices" onclick="toggleMenu()">📢 Notices</a>
@@ -267,18 +238,13 @@ opacity:.7;
 <h1>KES Updates</h1>
 <p>Notices • Student Support • Academic Resources</p>
 
-<a class="btn"
-href="https://instagram.com/kes_updatess"
-target="_blank">
+<a class="btn" href="https://instagram.com/kes_updatess" target="_blank">
 📸 Follow Instagram
 </a>
 </header>
 
-<!-- SEARCH -->
 <div class="search-container">
-<input
-type="text"
-id="searchInput"
+<input type="text" id="searchInput"
 placeholder="🔍 Search notices, fees, cutoff, papers..."
 onkeyup="searchContent()">
 </div>
@@ -289,15 +255,11 @@ onkeyup="searchContent()">
 <div class="card searchable" id="notices">
 <h2>📢 Important Notices</h2>
 
-<a class="link"
-href="https://kessc.edu.in/notices/"
-target="_blank">
+<a class="link" href="https://kessc.edu.in/notices/" target="_blank">
 Degree College Notices
 </a>
 
-<a class="link"
-href="https://kesjrsanghvi.com/enotices/"
-target="_blank">
+<a class="link" href="https://kesjrsanghvi.com/enotices/" target="_blank">
 Junior College Notices
 </a>
 </div>
@@ -306,74 +268,55 @@ Junior College Notices
 <div class="card searchable" id="student">
 <h2>🧑‍🎓 Student Corner</h2>
 
-<a class="action-btn meme"
-href="https://forms.gle/USmraK6T7EqH7UU9A"
-target="_blank">
+<a class="action-btn meme" href="https://forms.gle/USmraK6T7EqH7UU9A" target="_blank">
 😂 Submit Meme
 </a>
 
-<a class="action-btn doubt"
-href="mailto:kesupdatess@gmail.com?subject=Ask%20Doubt%20-%20KES%20Updates">
+<a class="action-btn doubt" href="mailto:kesupdatess@gmail.com">
 ❓ Ask Doubt
 </a>
 
-<a class="action-btn report"
-href="https://docs.google.com/forms/d/e/1FAIpQLSdpkELaLHjghZzWYR6EPYotuRvRDa3yQq3r5y2EHkRqrQOG8g/viewform/viewform"
-target="_blank">
+<a class="action-btn report" href="https://docs.google.com/forms/d/e/1FAIpQLSdpkELaLHjghZzWYR6EPYotuRvRDa3yQq3r5y2EHkRqrQOG8g/viewform">
 🚨 Report Problem
 </a>
 </div>
 
-<!-- ACADEMIC -->
+<!-- ACADEMIC (CORRECT FIXED) -->
 <div class="card searchable" id="academic">
 <h2>📚 Academic Info, Fees & Cutoff</h2>
 
-<a class="link"
-href="https://kesupdatess.github.io/Academic-Calendar-2026-27/"
-target="_blank">
+<a class="link" href="https://drive.google.com/file/d/1F9UqN7SbvUJEaWOy7jtvoiu1dNkEpqVX/view" target="_blank">
 📅 Academic Calendar 2026-27
 </a>
 
-<a class="link"
-href="https://kesupdatess.github.io/DEGREE-COLLEGE-FEES/"
-target="_blank">
-🎓 Degree College Fees
-</a>
-
-<a class="link"
-href="https://kesupdatess.github.io/JUNIOR-COLLEGE-FEES/"
-target="_blank">
+<a class="link" href="https://drive.google.com/file/d/1vYEIClJD7QRGKD0ANY-XlPPUl-h9RN-f/view" target="_blank">
 🏫 Junior College Fees
 </a>
 
-<a class="link"
-href="https://kesupdatess.github.io/JUNIORCOLLEGE-CUTOFF/"
-target="_blank">
+<a class="link" href="https://drive.google.com/file/d/1VZeVNJ06mvhjIu6u6YeIpQzjxx2GiduN/view" target="_blank">
+🎓 Degree College Fees
+</a>
+
+<a class="link" href="https://drive.google.com/file/d/1QCLLe0cetbMmHujWD_AL95FE70TCJrF5/view" target="_blank">
 📊 Junior College Cutoff
 </a>
+
 </div>
 
 <!-- PAPERS -->
 <div class="card searchable" id="papers">
 <h2>📄 Past Year Question Papers</h2>
 
-<a class="link"
-href="https://kessclibrary.wixsite.com/library/copy-of-question-papers"
-target="_blank">
+<a class="link" href="https://kessclibrary.wixsite.com/library/copy-of-question-papers" target="_blank">
 📝 Access Previous Year Question Papers
 </a>
-
-<p style="margin-top:12px;opacity:.85;">
-Find semester-wise and subject-wise previous examination papers for better exam preparation.
-</p>
 </div>
 
 <!-- COLLAB -->
 <div class="card searchable" id="collab">
 <h2>🤝 Collaboration</h2>
 
-<a class="link"
-href="mailto:kesupdatess@gmail.com">
+<a class="link" href="mailto:kesupdatess@gmail.com">
 📧 kesupdatess@gmail.com
 </a>
 </div>
@@ -381,7 +324,6 @@ href="mailto:kesupdatess@gmail.com">
 <!-- ABOUT -->
 <div class="card searchable">
 <h2>ℹ️ About</h2>
-
 <p>
 KES Updates is a student-run platform providing notices,
 academic resources, fee information, cutoff updates,
@@ -397,61 +339,29 @@ question papers, and student support services.
 
 <script>
 
-/* SIDEBAR */
-
 function toggleMenu(){
 document.getElementById("sidebar").classList.toggle("active");
 document.getElementById("overlay").classList.toggle("active");
 }
 
-/* THEME */
-
 function setTheme(mode){
-document.body.className =
-mode === "dark" ? "" : mode;
-
+document.body.className = mode === "dark" ? "" : mode;
 localStorage.setItem("theme",mode);
 }
 
-/* SEARCH */
-
 function searchContent(){
-
-let input =
-document.getElementById("searchInput")
-.value
-.toLowerCase();
-
-let cards =
-document.querySelectorAll(".searchable");
+let input = document.getElementById("searchInput").value.toLowerCase();
+let cards = document.querySelectorAll(".searchable");
 
 cards.forEach(card=>{
-
-let text =
-card.innerText.toLowerCase();
-
-if(text.includes(input)){
-card.style.display="block";
-}
-else{
-card.style.display="none";
-}
-
+let text = card.innerText.toLowerCase();
+card.style.display = text.includes(input) ? "block" : "none";
 });
-
 }
 
-/* LOAD SAVED THEME */
-
-window.onload=()=>{
-
-let saved=
-localStorage.getItem("theme");
-
-if(saved){
-setTheme(saved);
-}
-
+window.onload = ()=>{
+let saved = localStorage.getItem("theme");
+if(saved) setTheme(saved);
 };
 
 </script>
